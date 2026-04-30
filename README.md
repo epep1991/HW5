@@ -103,4 +103,4 @@ The `references/test_pages.csv` file contains 5 synthetic product pages covering
 
 ## Video Walkthrough
 
-[Link to be added after recording]
+[[Watch the demo](YOUR_YOUTUBE_LINK_HERE)](https://youtu.be/w_TAhTj3ndQ)
