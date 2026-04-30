@@ -43,52 +43,6 @@ Either:
 ### Step 1: Run the deterministic pre-check
 
 ```bash
-cat > .agents/skills/content-component-scorer/SKILL.md << 'EOF'
----
-name: content-component-scorer
-description: Scores product page content for modular readiness before it enters an AI-powered paid social ad generation pipeline. Use when a user wants to evaluate whether a product page body content contains the five required components (headline, short_description, feature_list, audience_statement, cta) and whether each component is independently extractable for use in Facebook/Instagram ad formats. Also checks metadata fields for completeness. Do NOT use for general content quality reviews, SEO audits, brand voice checks, or creative feedback.
----
-
-# Content Component Scorer
-
-## Purpose
-
-Determines whether a product page body content is structurally ready to serve as source material for an AI-powered paid social ad generation pipeline. Surfaces component-level failures before the pipeline runs.
-
-## When to Use
-
-- User wants to evaluate whether product page content is ready for AI ad generation
-- User asks which components are missing or not extractable from a product description
-- User wants to know why AI-generated ad copy came out generic or truncated
-- User wants a readiness score before running a content generation pipeline
-
-## When NOT to Use
-
-- General copywriting feedback or creative review
-- SEO or GEO optimization
-- Brand voice or tone analysis
-- Legal or compliance checks
-- Evaluating ad performance or creative quality
-
-## Expected Inputs
-
-Either:
-- A single product page as plain text
-- A CSV with columns: product_name, body_content, product_category, tags, seo_title, seo_description, image_url, image_alt_text
-
-## Character Limit Reference
-
-| Component | Ad Field | Limit |
-|---|---|---|
-| headline | Facebook/Instagram Headline | 27 characters |
-| short_description | Primary Text | 125 characters |
-| cta | Call to Action | 20 characters |
-
-## Step-by-Step Instructions
-
-### Step 1: Run the deterministic pre-check
-
-```bash
 python scripts/score_components.py --csv_path PATH --row_index N
 ```
 
